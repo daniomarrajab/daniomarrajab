@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dani Omar El-Rajab — Engineering. Management. Digital Construction.</title>
+<meta name="description" content="Dani Omar El-Rajab — Industrial Engineering and Management student at KIT, Real Estate Engineering graduate (University of Stuttgart), Project Control & Technical Project Management at Stuttgart 21. Digital construction, AI, drone inspection, entrepreneurship.">
+<meta name="keywords" content="Dani Omar El-Rajab, Industrial Engineering and Management, KIT, Karlsruhe Institute of Technology, University of Stuttgart, Real Estate Engineering and Management, Stuttgart 21, Project Control, Technical Project Management, Infrastructure, Digital Construction, Artificial Intelligence in Construction, Drone Inspection, Computer Vision, Concrete Crack Detection, Automation, Robotics, Entrepreneurship, Project Management, Germany, Sindelfingen, Stuttgart">
+<style>
+:root{
+  --bg:#fbfbfd;
+  --bg-alt:#f5f5f7;
+  --ink:#1d1d1f;
+  --ink-soft:#515154;
+  --ink-faint:#86868b;
+  --white:#ffffff;
+  --black:#000000;
+  --dark:#0a0a0c;
+  --dark-card:#161618;
+  --gold:#b3905f;
+  --gold-bright:#d4b483;
+  --gold-grad:linear-gradient(120deg,#9c7c4d 0%,#d8bb8a 45%,#b3905f 100%);
+  --hairline:rgba(0,0,0,.08);
+  --hairline-dark:rgba(255,255,255,.1);
+  --radius:28px;
+  --radius-sm:18px;
+  --shadow:0 2px 12px rgba(0,0,0,.04),0 24px 60px -24px rgba(0,0,0,.12);
+  --shadow-hover:0 4px 16px rgba(0,0,0,.05),0 36px 80px -28px rgba(0,0,0,.18);
+  --ease:cubic-bezier(.22,.61,.21,1);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",Inter,Helvetica,Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--ink);
+  font-size:17px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+::selection{background:rgba(179,144,95,.25)}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+
+/* ---------- Nav ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);
+  background:rgba(251,251,253,.72);
+  border-bottom:1px solid transparent;
+  transition:border-color .4s var(--ease),background .4s var(--ease);
+}
+.nav.scrolled{border-bottom-color:var(--hairline)}
+.nav-inner{
+  max-width:1100px;margin:0 auto;padding:0 22px;
+  height:52px;display:flex;align-items:center;gap:28px;
+}
+.nav-brand{font-size:15px;font-weight:600;letter-spacing:-.01em;white-space:nowrap}
+.nav-brand span{color:var(--gold)}
+.nav-links{display:flex;gap:24px;margin-left:auto;align-items:center}
+.nav-links a{
+  font-size:12.5px;color:var(--ink-soft);letter-spacing:.01em;
+  transition:color .25s;
+}
+.nav-links a:hover{color:var(--ink)}
+.lang-toggle{
+  display:flex;border:1px solid var(--hairline);border-radius:99px;
+  overflow:hidden;font-size:11.5px;font-weight:600;letter-spacing:.04em;
+  margin-left:8px;background:rgba(0,0,0,.03);
+}
+.lang-toggle button{
+  border:0;background:transparent;color:var(--ink-faint);
+  padding:5px 12px;cursor:pointer;font:inherit;transition:all .3s var(--ease);
+}
+.lang-toggle button.active{background:var(--ink);color:#fff}
+.nav-burger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;padding:8px}
+.nav-burger span{display:block;width:18px;height:1.5px;background:var(--ink);margin:4px 0;transition:.3s}
+
+/* ---------- Hero ---------- */
+.hero{
+  min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  align-items:center;text-align:center;padding:120px 22px 80px;position:relative;
+  background:
+    radial-gradient(1100px 500px at 50% -10%,rgba(179,144,95,.10),transparent 60%),
+    var(--bg);
+}
+.hero-eyebrow{
+  font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:26px;
+}
+.hero h1{
+  font-size:clamp(44px,7.2vw,92px);
+  font-weight:700;letter-spacing:-.035em;line-height:1.04;
+  max-width:1000px;
+}
+.hero h1 .line{display:block}
+.hero h1 .grad{
+  background:var(--gold-grad);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-sub{
+  margin-top:28px;max-width:640px;font-size:clamp(17px,2vw,21px);
+  color:var(--ink-soft);line-height:1.5;font-weight:400;
+}
+.hero-cta{margin-top:42px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 26px;border-radius:99px;font-size:15px;font-weight:500;
+  transition:all .35s var(--ease);cursor:pointer;border:0;font-family:inherit;
+}
+.btn-primary{background:var(--ink);color:#fff}
+.btn-primary:hover{background:#000;transform:translateY(-1px);box-shadow:0 12px 30px -10px rgba(0,0,0,.4)}
+.btn-gold{background:var(--gold-grad);color:#fff}
+.btn-gold:hover{transform:translateY(-1px);box-shadow:0 12px 30px -10px rgba(156,124,77,.55)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid rgba(0,0,0,.18)}
+.btn-ghost:hover{border-color:var(--ink)}
+.hero-scroll{
+  position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+}
+.hero-scroll::after{
+  content:"";width:1px;height:36px;
+  background:linear-gradient(var(--ink-faint),transparent);
+  animation:drip 2.2s var(--ease) infinite;
+}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ---------- Sections ---------- */
+section{padding:110px 0}
+.container{max-width:1100px;margin:0 auto;padding:0 22px}
+.container-narrow{max-width:780px;margin:0 auto;padding:0 22px}
+.eyebrow{
+  font-size:12.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:16px;
+}
+h2{
+  font-size:clamp(32px,4.6vw,52px);font-weight:700;letter-spacing:-.03em;
+  line-height:1.08;margin-bottom:22px;
+}
+.lede{font-size:clamp(17px,1.9vw,20px);color:var(--ink-soft);max-width:640px}
+.section-alt{background:var(--bg-alt)}
+
+/* Highlights */
+.feature-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px;
+}
+.feature{
+  background:var(--white);border-radius:var(--radius);padding:36px 30px;
+  box-shadow:var(--shadow);transition:transform .45s var(--ease),box-shadow .45s var(--ease);
+}
+.feature:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+.feature .icon{
+  width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(140deg,rgba(179,144,95,.14),rgba(179,144,95,.05));
+  color:var(--gold);margin-bottom:20px;
+}
+.feature .icon svg{width:22px;height:22px}
+.feature h3{font-size:18px;font-weight:600;letter-spacing:-.01em;margin-bottom:8px}
+.feature p{font-size:14.5px;color:var(--ink-soft);line-height:1.55}
+
+/* Prose */
+.prose p{font-size:clamp(16.5px,1.8vw,19px);color:var(--ink-soft);margin-bottom:24px;line-height:1.65}
+.prose p strong{color:var(--ink);font-weight:600}
+.pullquote{
+  margin:48px 0;padding:34px 38px;border-radius:var(--radius);
+  background:var(--white);box-shadow:var(--shadow);
+  font-size:clamp(19px,2.4vw,24px);font-weight:600;letter-spacing:-.015em;line-height:1.4;
+  position:relative;
+}
+.pullquote::before{
+  content:"";position:absolute;left:0;top:26px;bottom:26px;width:3px;
+  background:var(--gold-grad);border-radius:3px;
+}
+
+/* ---------- Timeline ---------- */
+.timeline{position:relative;margin-top:64px;padding-left:42px}
+.timeline::before{
+  content:"";position:absolute;left:9px;top:6px;bottom:6px;width:1.5px;
+  background:linear-gradient(rgba(179,144,95,.0),rgba(179,144,95,.55) 8%,rgba(179,144,95,.55) 92%,rgba(179,144,95,0));
+}
+.tl-item{position:relative;padding-bottom:54px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{
+  content:"";position:absolute;left:-39px;top:7px;width:11px;height:11px;border-radius:50%;
+  background:var(--bg-alt);border:2px solid var(--gold);
+  box-shadow:0 0 0 5px var(--bg-alt);
+}
+.tl-year{
+  font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:6px;
+}
+.tl-item h3{font-size:21px;font-weight:600;letter-spacing:-.015em;margin-bottom:8px}
+.tl-item p{font-size:15.5px;color:var(--ink-soft);max-width:620px}
+
+/* ---------- Cards ---------- */
+.card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:56px}
+.card{
+  background:var(--white);border-radius:var(--radius);padding:38px 34px;
+  box-shadow:var(--shadow);display:flex;flex-direction:column;
+  transition:transform .45s var(--ease),box-shadow .45s var(--ease);
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover)}
+.card .meta{
+  font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:12px;
+}
+.card h3{font-size:21px;font-weight:600;letter-spacing:-.015em;margin-bottom:4px}
+.card .inst{font-size:15px;color:var(--ink-faint);margin-bottom:16px}
+.card p{font-size:15px;color:var(--ink-soft);line-height:1.6}
+.card.wide{grid-column:1/-1}
+
+/* Experience */
+.exp-card{display:grid;grid-template-columns:1.1fr 1fr;gap:44px}
+.exp-card ul{list-style:none;margin-top:4px}
+.exp-card li{
+  font-size:15px;color:var(--ink-soft);padding:10px 0 10px 26px;position:relative;
+  border-bottom:1px solid var(--hairline);
+}
+.exp-card li:last-child{border-bottom:0}
+.exp-card li::before{
+  content:"";position:absolute;left:2px;top:17px;width:7px;height:7px;border-radius:50%;
+  background:var(--gold-grad);
+}
+
+/* ---------- Dark section ---------- */
+.dark{background:var(--dark);color:#f5f5f7}
+.dark .eyebrow{color:var(--gold-bright)}
+.dark h2{color:#fff}
+.dark .lede{color:rgba(245,245,247,.66)}
+.dark-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:18px;margin-top:56px}
+.dark-card{
+  background:var(--dark-card);border:1px solid var(--hairline-dark);
+  border-radius:var(--radius);padding:38px 34px;
+  transition:transform .45s var(--ease),border-color .45s var(--ease);
+}
+.dark-card:hover{transform:translateY(-4px);border-color:rgba(212,180,131,.35)}
+.dark-card h3{font-size:21px;font-weight:600;letter-spacing:-.015em;margin-bottom:14px;color:#fff}
+.dark-card p{font-size:15px;color:rgba(245,245,247,.62);line-height:1.65;margin-bottom:14px}
+.dark-card p:last-of-type{margin-bottom:0}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.tag{
+  font-size:12.5px;font-weight:500;padding:7px 14px;border-radius:99px;
+  border:1px solid var(--hairline-dark);color:rgba(245,245,247,.75);
+  background:rgba(255,255,255,.03);
+}
+.model-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.model-chip{
+  font-size:13px;font-weight:600;letter-spacing:.02em;padding:9px 16px;border-radius:12px;
+  background:linear-gradient(140deg,rgba(212,180,131,.16),rgba(212,180,131,.05));
+  color:var(--gold-bright);border:1px solid rgba(212,180,131,.25);
+}
+
+/* ---------- Entrepreneurship ---------- */
+.venture-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:48px}
+.venture{
+  background:var(--white);border-radius:var(--radius-sm);padding:24px 26px;
+  box-shadow:var(--shadow);display:flex;gap:16px;align-items:flex-start;
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease);
+}
+.venture:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover)}
+.venture .dot{
+  flex:none;width:10px;height:10px;border-radius:50%;background:var(--gold-grad);margin-top:7px;
+}
+.venture p{font-size:15px;color:var(--ink-soft);line-height:1.55}
+.venture p strong{color:var(--ink);font-weight:600;display:block;margin-bottom:2px}
+
+/* ---------- Skills ---------- */
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:56px}
+.skill-cat{
+  background:var(--white);border-radius:var(--radius);padding:34px 32px;box-shadow:var(--shadow);
+}
+.skill-cat h3{
+  font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:10px;
+}
+.skill-cat h3 svg{width:17px;height:17px}
+.badges{display:flex;flex-wrap:wrap;gap:8px}
+.badge{
+  font-size:13px;font-weight:500;padding:8px 15px;border-radius:99px;
+  background:var(--bg-alt);color:var(--ink-soft);border:1px solid transparent;
+  transition:all .3s var(--ease);
+}
+.badge:hover{border-color:rgba(179,144,95,.4);color:var(--ink);background:#fff}
+
+/* ---------- Languages ---------- */
+.lang-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+.lang-card{
+  background:var(--white);border-radius:var(--radius-sm);padding:30px 24px;text-align:center;
+  box-shadow:var(--shadow);transition:transform .4s var(--ease);
+}
+.lang-card:hover{transform:translateY(-3px)}
+.lang-card .glyph{
+  font-size:26px;font-weight:700;letter-spacing:-.02em;
+  background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  margin-bottom:8px;
+}
+.lang-card h3{font-size:17px;font-weight:600}
+.lang-note{margin-top:36px;font-size:16px;color:var(--ink-soft);max-width:620px}
+
+/* ---------- Contact ---------- */
+.contact-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;margin-top:56px}
+.contact-info{display:flex;flex-direction:column;gap:6px}
+.contact-line{
+  display:flex;align-items:center;gap:16px;padding:18px 0;
+  border-bottom:1px solid var(--hairline);font-size:16px;
+}
+.contact-line:last-child{border-bottom:0}
+.contact-line .ci{
+  width:40px;height:40px;border-radius:12px;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(140deg,rgba(179,144,95,.14),rgba(179,144,95,.05));color:var(--gold);
+}
+.contact-line .ci svg{width:18px;height:18px}
+.contact-line a:hover{color:var(--gold)}
+.contact-line .cl-label{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);display:block}
+.form{display:flex;flex-direction:column;gap:14px}
+.form input,.form textarea{
+  font-family:inherit;font-size:15px;color:var(--ink);
+  background:var(--white);border:1px solid var(--hairline);border-radius:14px;
+  padding:15px 18px;outline:none;transition:border-color .3s,box-shadow .3s;width:100%;
+  resize:vertical;
+}
+.form input:focus,.form textarea:focus{
+  border-color:var(--gold);box-shadow:0 0 0 4px rgba(179,144,95,.12);
+}
+.form ::placeholder{color:var(--ink-faint)}
+.form-note{font-size:12.5px;color:var(--ink-faint)}
+
+/* ---------- Footer ---------- */
+footer{
+  background:var(--dark);color:rgba(245,245,247,.55);padding:54px 0;font-size:13px;
+}
+.footer-inner{
+  max-width:1100px;margin:0 auto;padding:0 22px;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+}
+.footer-inner .fname{color:#fff;font-weight:600;font-size:15px}
+.footer-inner .fname span{color:var(--gold-bright)}
+.footer-links{display:flex;gap:22px}
+.footer-links a:hover{color:#fff}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-delay="1"]{transition-delay:.1s}
+.reveal[data-delay="2"]{transition-delay:.2s}
+.reveal[data-delay="3"]{transition-delay:.3s}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .hero-scroll::after{animation:none}
+  *{transition:none!important}
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width:980px){
+  .feature-grid{grid-template-columns:1fr 1fr}
+  .exp-card{grid-template-columns:1fr;gap:24px}
+  .dark-grid{grid-template-columns:1fr}
+  .contact-wrap{grid-template-columns:1fr;gap:44px}
+  .lang-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:760px){
+  section{padding:80px 0}
+  .nav-links{
+    display:none;position:fixed;top:52px;left:0;right:0;flex-direction:column;
+    background:rgba(251,251,253,.97);backdrop-filter:blur(20px);
+    padding:24px 22px 30px;gap:20px;border-bottom:1px solid var(--hairline);
+    align-items:flex-start;
+  }
+  .nav-links.open{display:flex}
+  .nav-burger{display:block}
+  .feature-grid,.card-grid,.skills-grid,.venture-grid{grid-template-columns:1fr}
+  .timeline{padding-left:34px}
+  .tl-item::before{left:-31px}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand">Dani Omar El-Rajab<span>.</span></a>
+    <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#journey" data-i18n="nav.journey">Journey</a>
+      <a href="#education" data-i18n="nav.education">Education</a>
+      <a href="#experience" data-i18n="nav.experience">Experience</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#entrepreneurship" data-i18n="nav.venture">Entrepreneurship</a>
+      <a href="#skills" data-i18n="nav.skills">Skills</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button id="btnEN" class="active" onclick="setLang('en')">EN</button>
+        <button id="btnDE" onclick="setLang('de')">DE</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <p class="hero-eyebrow reveal" data-i18n="hero.eyebrow">Dani Omar El-Rajab</p>
+  <h1 class="reveal" data-delay="1" data-i18n="hero.h1"><span class="line">Engineering.</span><span class="line">Management.</span><span class="line grad">Digital Construction.</span></h1>
+  <p class="hero-sub reveal" data-delay="2" data-i18n="hero.sub">Engineering graduate, Master's student at KIT and infrastructure project management professional — connecting technical precision, business thinking and digital innovation.</p>
+  <div class="hero-cta reveal" data-delay="3">
+    <a href="#journey" class="btn btn-primary" data-i18n="hero.cta1">View my journey</a>
+    <a href="#projects" class="btn btn-gold" data-i18n="hero.cta2">Explore my projects</a>
+    <a href="#contact" class="btn btn-ghost" data-i18n="hero.cta3">Contact me</a>
+  </div>
+  <div class="hero-scroll" data-i18n="hero.scroll">Scroll</div>
+</header>
+
+<!-- ================= INTRO ================= -->
+<section>
+  <div class="container">
+    <div class="container-narrow reveal" style="padding:0">
+      <p class="eyebrow" data-i18n="intro.eyebrow">Profile</p>
+      <h2 data-i18n="intro.h2">From infrastructure projects to digital innovation.</h2>
+      <div class="prose" data-i18n="intro.text">
+        <p>Dani Omar El-Rajab is an engineering graduate and Master's student in <strong>Industrial Engineering and Management at the Karlsruhe Institute of Technology (KIT)</strong>. With a background in Real Estate Engineering and Management from the University of Stuttgart and hands-on experience in technical project management for the Stuttgart 21 airport connection, he combines engineering knowledge, business thinking and a strong interest in digital innovation.</p>
+        <p>His focus lies in infrastructure development, project control, digital construction, AI-supported inspection methods, automation, and entrepreneurial solutions that connect technical precision with real-world impact.</p>
+      </div>
+    </div>
+    <div class="feature-grid">
+      <div class="feature reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div>
+        <h3 data-i18n="f1.h">Infrastructure</h3>
+        <p data-i18n="f1.p">Project control and technical project management on Stuttgart 21 — one of Germany's most complex infrastructure programmes.</p>
+      </div>
+      <div class="feature reveal" data-delay="1">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7c0 2.6-1.4 4.3-2.7 5.6-.8.8-1.3 1.9-1.3 3v.4H9v-.4c0-1.1-.5-2.2-1.3-3C6.4 13.3 5 11.6 5 9a7 7 0 0 1 7-7zM9 21h6"/></svg></div>
+        <h3 data-i18n="f2.h">AI &amp; Digital Construction</h3>
+        <p data-i18n="f2.p">Deep learning, computer vision and drone-based inspection for smarter, data-driven construction and infrastructure monitoring.</p>
+      </div>
+      <div class="feature reveal" data-delay="2">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></div>
+        <h3 data-i18n="f3.h">Entrepreneurship</h3>
+        <p data-i18n="f3.p">An entrepreneurial mindset since the age of 16 — focused on scalable, technology-driven business models with real-world execution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section-alt" id="about">
+  <div class="container-narrow">
+    <p class="eyebrow reveal" data-i18n="about.eyebrow">About me</p>
+    <h2 class="reveal" data-i18n="about.h2">Analytical thinking. Practical execution.</h2>
+    <div class="prose reveal" data-i18n="about.text">
+      <p>I am Dani Omar El-Rajab, an engineering and management-focused graduate from Germany. I completed my Bachelor's degree in <strong>Real Estate Engineering and Management at the University of Stuttgart</strong> in March 2026 and have continued my academic path with a Master's degree in <strong>Industrial Engineering and Management at KIT</strong>, which I began in April 2026.</p>
+      <p>My interests lie at the intersection of engineering, infrastructure, business, digitalization and technology. I am especially interested in how modern tools such as artificial intelligence, computer vision, automation, robotics and digital workflows can improve the way construction and infrastructure projects are planned, managed, inspected and delivered.</p>
+      <p>Alongside my studies, I gained practical experience in Project Control and Technical Project Management at Projekt Stuttgart-Ulm GmbH, working on the Stuttgart 21 airport connection. This role gave me valuable insight into large-scale infrastructure development, technical documentation, commissioning processes, workflow optimization and communication with different project stakeholders.</p>
+    </div>
+    <div class="pullquote reveal" data-i18n="about.quote">I enjoy understanding complex systems, structuring information clearly, improving processes — and developing ideas that can become real solutions.</div>
+    <div class="prose reveal" data-i18n="about.text2">
+      <p>My long-term goal is to connect engineering knowledge, management skills and entrepreneurial thinking to build useful, scalable and future-oriented projects.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STORY ================= -->
+<section>
+  <div class="container-narrow">
+    <p class="eyebrow reveal" data-i18n="story.eyebrow">My story</p>
+    <h2 class="reveal" data-i18n="story.h2">Shaped in Stuttgart. Built for what's next.</h2>
+    <div class="prose reveal" data-i18n="story.text">
+      <p>My journey started in Stuttgart, Germany, where I was born. Growing up in the Stuttgart region shaped my connection to engineering, infrastructure, mobility and business from an early age. After kindergarten, I attended elementary school at Steinbachschule in Büsnau, Stuttgart, continued at Hegel-Gymnasium Vaihingen, and completed my Abitur at Gymnasium Unterrieden in 2020.</p>
+      <p>During my school years, I developed an early interest in business and independence. At the age of 16, I started my first small resale project, earning my first few hundred euros. Although it was a small beginning, it gave me real experience with demand, pricing, communication, risk, responsibility and profit — and showed me that creating value and taking initiative leads to real results.</p>
+      <p>After my Abitur, I first studied Business Administration at Stuttgart University of Applied Sciences, building a foundation in economics and management. I then moved into a more technical and interdisciplinary direction: <strong>Real Estate Engineering and Management at the University of Stuttgart</strong> — a programme connecting civil engineering, real estate economics, project planning, property development, business administration and technical management. I graduated in March 2026.</p>
+      <p>During my Bachelor's studies, I became increasingly fascinated by digitalization and automation in construction. My academic work focused on the use of artificial intelligence for drone-based inspections and image analysis — exploring how deep learning models such as VGG16, ResNet and EfficientNet can detect cracks in concrete structures and support automated inspection processes.</p>
+      <p>Today, I continue this path through my Master's degree in Industrial Engineering and Management at KIT — deepening my understanding of the connection between engineering, management, technology, economics and innovation. My goal: managing complex technical systems, building scalable solutions, and contributing to the digital transformation of engineering and infrastructure.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TIMELINE ================= -->
+<section class="section-alt" id="journey">
+  <div class="container-narrow">
+    <p class="eyebrow reveal" data-i18n="tl.eyebrow">Timeline</p>
+    <h2 class="reveal" data-i18n="tl.h2">My journey.</h2>
+    <p class="lede reveal" data-i18n="tl.lede">Every step — from Stuttgart to KIT — built on the one before it.</p>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-year">2002</div>
+        <h3 data-i18n="tl1.h">Born in Stuttgart, Germany</h3>
+        <p data-i18n="tl1.p">Dani Omar El-Rajab was born in Stuttgart — the region that shaped his connection to engineering, mobility and business.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year">2005–2009</div>
+        <h3 data-i18n="tl2.h">Kindergarten</h3>
+        <p data-i18n="tl2.p">From the age of three to seven, building his early social and personal foundation.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year">2009–2013</div>
+        <h3 data-i18n="tl3.h">Steinbachschule, Büsnau (Stuttgart)</h3>
+        <p data-i18n="tl3.p">Elementary school years at Steinbachschule in Stuttgart-Büsnau.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year">2013–2016</div>
+        <h3 data-i18n="tl4.h">Hegel-Gymnasium Vaihingen</h3>
+        <p data-i18n="tl4.p">Grades 5 to 7 at Hegel-Gymnasium in Stuttgart-Vaihingen.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year">2016–2020</div>
+        <h3 data-i18n="tl5.h">Gymnasium Unterrieden</h3>
+        <p data-i18n="tl5.p">From 8th grade to the Abitur — completing the General University Entrance Qualification in 2020.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year" data-i18n="tl6.y">Age 16</div>
+        <h3 data-i18n="tl6.h">First business experience</h3>
+        <p data-i18n="tl6.p">A first small resale project — and first real lessons in entrepreneurship, pricing, customer communication and initiative.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year">2020–2021</div>
+        <h3 data-i18n="tl7.h">Business Administration</h3>
+        <p data-i18n="tl7.p">Studies at Stuttgart University of Applied Sciences — an initial academic foundation in economics and management.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year">2021–2026</div>
+        <h3 data-i18n="tl8.h">Real Estate Engineering and Management</h3>
+        <p data-i18n="tl8.p">Bachelor's degree at the University of Stuttgart — combining civil engineering, real estate economics, business administration, property development and project planning. Graduated in March 2026.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year" data-i18n="tl9.y">2024 – Present</div>
+        <h3 data-i18n="tl9.h">Project Control &amp; Technical Project Management</h3>
+        <p data-i18n="tl9.p">Hands-on experience at Projekt Stuttgart-Ulm GmbH on the Stuttgart 21 airport connection.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year" data-i18n="tl10.y">April 2026 – Present</div>
+        <h3 data-i18n="tl10.h">Master's at KIT</h3>
+        <p data-i18n="tl10.p">Master's degree in Industrial Engineering and Management at the Karlsruhe Institute of Technology.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EDUCATION ================= -->
+<section id="education">
+  <div class="container">
+    <p class="eyebrow reveal" data-i18n="edu.eyebrow">Education</p>
+    <h2 class="reveal" data-i18n="edu.h2">An interdisciplinary foundation.</h2>
+    <div class="card-grid">
+      <div class="card reveal">
+        <div class="meta" data-i18n="edu1.meta">April 2026 – Present</div>
+        <h3 data-i18n="edu1.h">M.Sc. Industrial Engineering and Management</h3>
+        <div class="inst" data-i18n="edu1.inst">Karlsruhe Institute of Technology (KIT)</div>
+        <p data-i18n="edu1.p">The programme strengthens his knowledge in engineering, management, economics, technology and innovation — supporting his goal of working at the intersection of technical systems, business strategy, infrastructure and digital transformation.</p>
+      </div>
+      <div class="card reveal" data-delay="1">
+        <div class="meta">10/2021 – 03/2026</div>
+        <h3 data-i18n="edu2.h">B.Sc. Real Estate Engineering and Management</h3>
+        <div class="inst" data-i18n="edu2.inst">University of Stuttgart</div>
+        <p data-i18n="edu2.p">A programme combining civil engineering, business administration, real estate economics, project development, asset management and project planning — a broad interdisciplinary foundation for real estate, construction, infrastructure and management processes.</p>
+      </div>
+      <div class="card reveal">
+        <div class="meta">10/2020 – 10/2021</div>
+        <h3 data-i18n="edu3.h">Business Administration</h3>
+        <div class="inst" data-i18n="edu3.inst">Stuttgart University of Applied Sciences</div>
+        <p data-i18n="edu3.p">An early academic foundation in economics, business structures and management before moving into the engineering and real estate field.</p>
+      </div>
+      <div class="card reveal" data-delay="1">
+        <div class="meta" data-i18n="edu4.meta">Completed 2020</div>
+        <h3>Abitur</h3>
+        <div class="inst" data-i18n="edu4.inst">Gymnasium Unterrieden, Sindelfingen</div>
+        <p data-i18n="edu4.p">General University Entrance Qualification, completed in 2020.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section class="section-alt" id="experience">
+  <div class="container">
+    <p class="eyebrow reveal" data-i18n="exp.eyebrow">Professional experience</p>
+    <h2 class="reveal" data-i18n="exp.h2">Inside one of Germany's largest infrastructure programmes.</h2>
+    <div class="card wide reveal" style="margin-top:56px">
+      <div class="exp-card">
+        <div>
+          <div class="meta" data-i18n="exp1.meta">02/2024 – Present · Stuttgart</div>
+          <h3 data-i18n="exp1.h">Project Control &amp; Technical Project Management</h3>
+          <div class="inst" data-i18n="exp1.inst">Projekt Stuttgart-Ulm GmbH — Stuttgart 21 airport connection</div>
+          <p data-i18n="exp1.p">Practical experience in large-scale infrastructure development and technical project coordination — in an environment with high technical and organizational complexity. This role strengthened Dani's understanding of how major infrastructure projects are coordinated, documented, monitored and optimized, and developed his skills in precision, communication, process improvement and structured project work.</p>
+        </div>
+        <ul data-i18n="exp1.list">
+          <li>Supporting the commissioning of various construction works</li>
+          <li>Organizing and maintaining technical documentation</li>
+          <li>Improving document management and control workflows</li>
+          <li>Actual-versus-target comparisons to assess project efficiency</li>
+          <li>Communicating with different project stakeholders</li>
+          <li>Supporting structured and efficient project execution</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROJECTS (DARK) ================= -->
+<section class="dark" id="projects">
+  <div class="container">
+    <p class="eyebrow reveal" data-i18n="prj.eyebrow">Projects &amp; technical interests</p>
+    <h2 class="reveal" data-i18n="prj.h2">Where construction meets intelligence.</h2>
+    <p class="lede reveal" data-i18n="prj.lede">The digital transformation of construction — through artificial intelligence, automation and data-driven engineering.</p>
+    <div class="dark-grid">
+      <div class="dark-card reveal">
+        <h3 data-i18n="prj1.h">AI, drone inspection &amp; digital construction</h3>
+        <p data-i18n="prj1.p1">Dani's central academic focus is the use of artificial intelligence for drone-based inspections and automated image analysis. He explored how computer vision and deep learning can detect cracks in concrete structures — working with established concrete crack image datasets such as SDNET2018 and the Özgenel dataset.</p>
+        <p data-i18n="prj1.p2">The goal: making construction and infrastructure monitoring more efficient, scalable and data-driven through AI-supported inspection methods.</p>
+        <div class="model-row">
+          <span class="model-chip">VGG16</span>
+          <span class="model-chip">ResNet</span>
+          <span class="model-chip">EfficientNet</span>
+          <span class="model-chip">CNNs</span>
+        </div>
+        <div class="tags" data-i18n="prj1.tags">
+          <span class="tag">Artificial intelligence in construction</span>
+          <span class="tag">Drone-based inspection</span>
+          <span class="tag">Concrete crack detection</span>
+          <span class="tag">Computer vision</span>
+          <span class="tag">Deep learning</span>
+          <span class="tag">Digital construction workflows</span>
+          <span class="tag">Automation &amp; robotics</span>
+          <span class="tag">Infrastructure monitoring</span>
+          <span class="tag">Data-driven engineering</span>
+        </div>
+      </div>
+      <div class="dark-card reveal" data-delay="1">
+        <h3 data-i18n="prj2.h">Programming &amp; software</h3>
+        <p data-i18n="prj2.p1">Dani uses technology to automate repetitive work, structure information and build useful applications. His technical interests include Python, C++, JavaScript, PowerShell, automation workflows, data handling and digital tools.</p>
+        <p data-i18n="prj2.p2">He has worked on creative programming ideas — interactive C++ game concepts, story-based games, simulation projects and technical learning tools — combining logic, creativity, storytelling and software development.</p>
+        <div class="tags" data-i18n="prj2.tags">
+          <span class="tag">Python</span>
+          <span class="tag">C++</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">PowerShell</span>
+          <span class="tag">Automation workflows</span>
+          <span class="tag">Data handling</span>
+          <span class="tag">Game concepts &amp; simulations</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ENTREPRENEURSHIP ================= -->
+<section id="entrepreneurship">
+  <div class="container">
+    <div class="container-narrow" style="padding:0">
+      <p class="eyebrow reveal" data-i18n="ent.eyebrow">Entrepreneurship</p>
+      <h2 class="reveal" data-i18n="ent.h2">Practical problems. Scalable solutions.</h2>
+      <div class="prose reveal" data-i18n="ent.text">
+        <p>Dani developed an entrepreneurial mindset early. At 16, his first small resale project taught him lessons about initiative, demand, pricing, communication, customer behavior and responsibility — lessons that still shape his thinking today.</p>
+        <p>He is interested in building scalable, practical and technology-driven business models: digital platforms, temporary work systems, real estate and infrastructure-related services, AI-supported construction tools, and international business between Germany and the MENA region.</p>
+      </div>
+    </div>
+    <div class="venture-grid">
+      <div class="venture reveal"><div class="dot"></div><p data-i18n="v1"><strong>Digital temporary work platform</strong>A commission-based job-matching platform connecting employers and temporary workers — with instant payment models and rating systems for quality control.</p></div>
+      <div class="venture reveal" data-delay="1"><div class="dot"></div><p data-i18n="v2"><strong>AI-supported construction tools</strong>Intelligent tools for construction, inspection and project documentation — bringing AI into everyday technical project environments.</p></div>
+      <div class="venture reveal"><div class="dot"></div><p data-i18n="v3"><strong>Digital workflow optimization</strong>Streamlining document management and technical workflows for complex project environments.</p></div>
+      <div class="venture reveal" data-delay="1"><div class="dot"></div><p data-i18n="v4"><strong>Premium valet parking services</strong>High-end valet parking concepts for premium restaurants and clubs.</p></div>
+      <div class="venture reveal"><div class="dot"></div><p data-i18n="v5"><strong>Germany–MENA trade</strong>Supplying medicine and hygiene products from Germany to the MENA region — connecting markets, languages and cultures.</p></div>
+      <div class="venture reveal" data-delay="1"><div class="dot"></div><p data-i18n="v6"><strong>Real estate &amp; infrastructure services</strong>Service models built on engineering knowledge, project management experience and market understanding.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section class="section-alt" id="skills">
+  <div class="container">
+    <p class="eyebrow reveal" data-i18n="sk.eyebrow">Skills</p>
+    <h2 class="reveal" data-i18n="sk.h2">Precision across disciplines.</h2>
+    <div class="skills-grid">
+      <div class="skill-cat reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4.5 4.5 0 0 0-6.4 6.4l-5 5L5 19.4l5-5a4.5 4.5 0 0 0 6.4-6.4l-2.8 2.8-1.4-1.4 2.5-3.1z"/></svg><span data-i18n="sk1.h">Engineering &amp; project</span></h3>
+        <div class="badges" data-i18n="sk1.b">
+          <span class="badge">Technical project management</span>
+          <span class="badge">Project control</span>
+          <span class="badge">Infrastructure project coordination</span>
+          <span class="badge">Commissioning support</span>
+          <span class="badge">Technical documentation</span>
+          <span class="badge">Document control</span>
+          <span class="badge">Workflow optimization</span>
+          <span class="badge">Actual-vs-target analysis</span>
+          <span class="badge">Stakeholder communication</span>
+          <span class="badge">Real estate engineering</span>
+          <span class="badge">Property development basics</span>
+          <span class="badge">Project planning</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal" data-delay="1">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg><span data-i18n="sk2.h">Technology &amp; IT</span></h3>
+        <div class="badges" data-i18n="sk2.b">
+          <span class="badge">Python</span>
+          <span class="badge">PowerShell</span>
+          <span class="badge">JavaScript</span>
+          <span class="badge">MS Office</span>
+          <span class="badge">macOS &amp; Windows</span>
+          <span class="badge">Document workflow systems</span>
+          <span class="badge">Data organization</span>
+          <span class="badge">Basic automation</span>
+          <span class="badge">Social media</span>
+          <span class="badge">AI &amp; machine learning</span>
+          <span class="badge">Deep learning &amp; computer vision</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5 9-5zM3 13l9 5 9-5"/></svg><span data-i18n="sk3.h">Academic &amp; technical interests</span></h3>
+        <div class="badges" data-i18n="sk3.b">
+          <span class="badge">Digital construction</span>
+          <span class="badge">AI in engineering</span>
+          <span class="badge">Drone inspections</span>
+          <span class="badge">Robotics &amp; automation</span>
+          <span class="badge">Concrete crack detection</span>
+          <span class="badge">VGG16 · ResNet · EfficientNet</span>
+          <span class="badge">CNNs</span>
+          <span class="badge">Real estate economics</span>
+          <span class="badge">Civil engineering basics</span>
+          <span class="badge">Industrial engineering</span>
+          <span class="badge">Engineering management</span>
+          <span class="badge">Business development</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal" data-delay="1">
+        <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span data-i18n="sk4.h">Soft skills</span></h3>
+        <div class="badges" data-i18n="sk4.b">
+          <span class="badge">Analytical thinking</span>
+          <span class="badge">Precision</span>
+          <span class="badge">Organizational strength</span>
+          <span class="badge">Communication</span>
+          <span class="badge">Responsibility</span>
+          <span class="badge">Initiative</span>
+          <span class="badge">Entrepreneurial thinking</span>
+          <span class="badge">Problem solving</span>
+          <span class="badge">Structured working style</span>
+          <span class="badge">Curiosity</span>
+          <span class="badge">Practical execution</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LANGUAGES ================= -->
+<section>
+  <div class="container">
+    <p class="eyebrow reveal" data-i18n="lg.eyebrow">Languages</p>
+    <h2 class="reveal" data-i18n="lg.h2">At home in four languages.</h2>
+    <div class="lang-grid">
+      <div class="lang-card reveal"><div class="glyph">DE</div><h3 data-i18n="lg1">German</h3></div>
+      <div class="lang-card reveal" data-delay="1"><div class="glyph">AR</div><h3 data-i18n="lg2">Arabic</h3></div>
+      <div class="lang-card reveal" data-delay="2"><div class="glyph">EN</div><h3 data-i18n="lg3">English</h3></div>
+      <div class="lang-card reveal" data-delay="3"><div class="glyph">FR</div><h3 data-i18n="lg4">French</h3></div>
+    </div>
+    <p class="lang-note reveal" data-i18n="lg.note">With an international and multicultural background, Dani moves comfortably between different languages, cultures and markets — a foundation for international business between Germany, Europe and the MENA region.</p>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section-alt" id="contact">
+  <div class="container">
+    <p class="eyebrow reveal" data-i18n="ct.eyebrow">Contact</p>
+    <h2 class="reveal" data-i18n="ct.h2">Let's build something.</h2>
+    <p class="lede reveal" data-i18n="ct.lede">For professional inquiries, collaborations, academic opportunities, business ideas and networking.</p>
+    <div class="contact-wrap">
+      <div class="contact-info reveal">
+        <div class="contact-line">
+          <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+          <div><span class="cl-label" data-i18n="ct.email">Email</span><a href="mailto:daniomarrajab@icloud.com">daniomarrajab@icloud.com</a></div>
+        </div>
+        <div class="contact-line">
+          <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div>
+          <div><span class="cl-label">LinkedIn</span><a href="https://www.linkedin.com/" target="_blank" rel="noopener">Dani Omar El-Rajab</a></div>
+        </div>
+        <div class="contact-line">
+          <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><span class="cl-label" data-i18n="ct.loc">Location</span><span data-i18n="ct.locv">Sindelfingen, Germany</span></div>
+        </div>
+        <div class="contact-line">
+          <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M16 8l-4.5 4.5M22 2l-6 6"/></svg></div>
+          <div><span class="cl-label" data-i18n="ct.handle">Handle</span><span>@daniomarrajab</span></div>
+        </div>
+      </div>
+      <form class="form reveal" data-delay="1" id="contactForm">
+        <input type="text" id="cfName" data-i18n-ph="ct.fname" placeholder="Your name" required>
+        <input type="email" id="cfEmail" data-i18n-ph="ct.femail" placeholder="Your email" required>
+        <textarea id="cfMsg" rows="6" data-i18n-ph="ct.fmsg" placeholder="Your message" required></textarea>
+        <button type="submit" class="btn btn-gold" style="align-self:flex-start" data-i18n="ct.fsend">Send message</button>
+        <p class="form-note" data-i18n="ct.fnote">Your message opens in your email client and is sent directly to Dani.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="fname">Dani Omar El-Rajab<span>.</span></div>
+      <div data-i18n="ft.tag">Engineering · Management · Digital Construction</div>
+    </div>
+    <div class="footer-links">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#journey" data-i18n="nav.journey">Journey</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </div>
+    <div data-i18n="ft.copy">© 2026 Dani Omar El-Rajab · Sindelfingen, Germany</div>
+  </div>
+</footer>
+
+<script>
+/* ---------- i18n ---------- */
+const DE = {
+  "nav.about":"Über mich","nav.journey":"Werdegang","nav.education":"Ausbildung","nav.experience":"Erfahrung",
+  "nav.projects":"Projekte","nav.venture":"Unternehmertum","nav.skills":"Kompetenzen","nav.contact":"Kontakt",
+
+  "hero.eyebrow":"Dani Omar El-Rajab",
+  "hero.h1":'<span class="line">Ingenieurwesen.</span><span class="line">Management.</span><span class="line grad">Digitales Bauen.</span>',
+  "hero.sub":"Ingenieurabsolvent, Masterstudent am KIT und im technischen Projektmanagement für Infrastruktur tätig — die Verbindung von technischer Präzision, unternehmerischem Denken und digitaler Innovation.",
+  "hero.cta1":"Mein Werdegang","hero.cta2":"Meine Projekte","hero.cta3":"Kontakt aufnehmen","hero.scroll":"Scrollen",
+
+  "intro.eyebrow":"Profil",
+  "intro.h2":"Von Infrastrukturprojekten zu digitaler Innovation.",
+  "intro.text":"<p>Dani Omar El-Rajab ist Ingenieurabsolvent und Masterstudent im <strong>Wirtschaftsingenieurwesen (Industrial Engineering and Management) am Karlsruher Institut für Technologie (KIT)</strong>. Mit einem Bachelorabschluss in Immobilientechnik und Immobilienwirtschaft der Universität Stuttgart und praktischer Erfahrung im technischen Projektmanagement der Flughafenanbindung von Stuttgart 21 verbindet er Ingenieurwissen, unternehmerisches Denken und ein starkes Interesse an digitaler Innovation.</p><p>Sein Fokus liegt auf Infrastrukturentwicklung, Projektsteuerung, digitalem Bauen, KI-gestützten Inspektionsmethoden, Automatisierung sowie unternehmerischen Lösungen, die technische Präzision mit realer Wirkung verbinden.</p>",
+  "f1.h":"Infrastruktur",
+  "f1.p":"Projektsteuerung und technisches Projektmanagement bei Stuttgart 21 — einem der komplexesten Infrastrukturprogramme Deutschlands.",
+  "f2.h":"KI & Digitales Bauen",
+  "f2.p":"Deep Learning, Computer Vision und drohnenbasierte Inspektion für intelligenteres, datengetriebenes Bauen und Infrastrukturmonitoring.",
+  "f3.h":"Unternehmertum",
+  "f3.p":"Unternehmerisches Denken seit dem 16. Lebensjahr — mit Fokus auf skalierbare, technologiegetriebene Geschäftsmodelle und praktische Umsetzung.",
+
+  "about.eyebrow":"Über mich",
+  "about.h2":"Analytisches Denken. Praktische Umsetzung.",
+  "about.text":"<p>Ich bin Dani Omar El-Rajab, ein ingenieur- und managementorientierter Absolvent aus Deutschland. Im März 2026 habe ich meinen Bachelor in <strong>Immobilientechnik und Immobilienwirtschaft an der Universität Stuttgart</strong> abgeschlossen und meinen akademischen Weg mit dem Masterstudium <strong>Wirtschaftsingenieurwesen (Industrial Engineering and Management) am KIT</strong> fortgesetzt, das ich im April 2026 begonnen habe.</p><p>Meine Interessen liegen an der Schnittstelle von Ingenieurwesen, Infrastruktur, Wirtschaft, Digitalisierung und Technologie. Besonders fasziniert mich, wie moderne Werkzeuge wie künstliche Intelligenz, Computer Vision, Automatisierung, Robotik und digitale Workflows die Planung, Steuerung, Prüfung und Umsetzung von Bau- und Infrastrukturprojekten verbessern können.</p><p>Parallel zum Studium habe ich praktische Erfahrung in der Projektsteuerung und im technischen Projektmanagement bei der Projekt Stuttgart-Ulm GmbH gesammelt — an der Flughafenanbindung von Stuttgart 21. Diese Tätigkeit gab mir wertvolle Einblicke in die Entwicklung von Großinfrastruktur, technische Dokumentation, Inbetriebnahmeprozesse, Workflow-Optimierung und die Kommunikation mit unterschiedlichen Projektbeteiligten.</p>",
+  "about.quote":"Ich verstehe gerne komplexe Systeme, strukturiere Informationen klar, verbessere Prozesse — und entwickle Ideen, die zu echten Lösungen werden können.",
+  "about.text2":"<p>Mein langfristiges Ziel ist es, Ingenieurwissen, Managementkompetenz und unternehmerisches Denken zu verbinden, um nützliche, skalierbare und zukunftsorientierte Projekte aufzubauen.</p>",
+
+  "story.eyebrow":"Meine Geschichte",
+  "story.h2":"Geprägt in Stuttgart. Gebaut für das, was kommt.",
+  "story.text":"<p>Meine Geschichte beginnt in Stuttgart, wo ich geboren wurde. Das Aufwachsen in der Region Stuttgart hat meine Verbindung zu Ingenieurwesen, Infrastruktur, Mobilität und Wirtschaft schon früh geprägt. Nach dem Kindergarten besuchte ich die Grundschule Steinbachschule in Stuttgart-Büsnau, anschließend das Hegel-Gymnasium Vaihingen, und legte 2020 mein Abitur am Gymnasium Unterrieden ab.</p><p>Schon während der Schulzeit entwickelte ich ein frühes Interesse an Wirtschaft und Eigenständigkeit. Mit 16 startete ich mein erstes kleines Resale-Projekt und verdiente meine ersten paar hundert Euro. Auch wenn es ein kleiner Anfang war, sammelte ich echte Erfahrungen mit Nachfrage, Preisgestaltung, Kommunikation, Risiko, Verantwortung und Gewinn — und lernte, dass Eigeninitiative und Wertschöpfung zu echten Ergebnissen führen.</p><p>Nach dem Abitur studierte ich zunächst Betriebswirtschaftslehre an der Hochschule für Technik Stuttgart und legte damit ein Fundament in Ökonomie und Management. Danach wechselte ich in eine technischere, interdisziplinäre Richtung: <strong>Immobilientechnik und Immobilienwirtschaft an der Universität Stuttgart</strong> — ein Studiengang, der Bauingenieurwesen, Immobilienökonomie, Projektplanung, Projektentwicklung, Betriebswirtschaft und technisches Management verbindet. Im März 2026 habe ich meinen Abschluss gemacht.</p><p>Während des Bachelorstudiums faszinierten mich Digitalisierung und Automatisierung im Bauwesen zunehmend. Meine akademische Arbeit konzentrierte sich auf den Einsatz künstlicher Intelligenz für drohnenbasierte Inspektionen und Bildanalyse — und darauf, wie Deep-Learning-Modelle wie VGG16, ResNet und EfficientNet Risse in Betonstrukturen erkennen und automatisierte Prüfprozesse unterstützen können.</p><p>Heute setze ich diesen Weg im Masterstudium Wirtschaftsingenieurwesen am KIT fort — und vertiefe mein Verständnis der Verbindung von Ingenieurwesen, Management, Technologie, Ökonomie und Innovation. Mein Ziel: komplexe technische Systeme steuern, skalierbare Lösungen bauen und die digitale Transformation von Ingenieurwesen und Infrastruktur mitgestalten.</p>",
+
+  "tl.eyebrow":"Zeitstrahl","tl.h2":"Mein Werdegang.",
+  "tl.lede":"Jeder Schritt — von Stuttgart bis zum KIT — baut auf dem vorherigen auf.",
+  "tl1.h":"Geboren in Stuttgart","tl1.p":"Dani Omar El-Rajab wurde in Stuttgart geboren — der Region, die seine Verbindung zu Technik, Mobilität und Wirtschaft geprägt hat.",
+  "tl2.h":"Kindergarten","tl2.p":"Vom dritten bis zum siebten Lebensjahr — die frühe soziale und persönliche Basis.",
+  "tl3.h":"Steinbachschule, Büsnau (Stuttgart)","tl3.p":"Grundschulzeit an der Steinbachschule in Stuttgart-Büsnau.",
+  "tl4.h":"Hegel-Gymnasium Vaihingen","tl4.p":"Klasse 5 bis 7 am Hegel-Gymnasium in Stuttgart-Vaihingen.",
+  "tl5.h":"Gymnasium Unterrieden","tl5.p":"Von der 8. Klasse bis zum Abitur — Allgemeine Hochschulreife 2020.",
+  "tl6.y":"Mit 16","tl6.h":"Erste unternehmerische Erfahrung","tl6.p":"Ein erstes kleines Resale-Projekt — und erste echte Lektionen in Unternehmertum, Preisgestaltung, Kundenkommunikation und Eigeninitiative.",
+  "tl7.h":"Betriebswirtschaftslehre","tl7.p":"Studium an der Hochschule für Technik Stuttgart — ein erstes akademisches Fundament in Ökonomie und Management.",
+  "tl8.h":"Immobilientechnik und Immobilienwirtschaft","tl8.p":"Bachelorstudium an der Universität Stuttgart — Bauingenieurwesen, Immobilienökonomie, Betriebswirtschaft, Projektentwicklung und Projektplanung. Abschluss im März 2026.",
+  "tl9.y":"2024 – Heute","tl9.h":"Projektsteuerung & Technisches Projektmanagement","tl9.p":"Praxiserfahrung bei der Projekt Stuttgart-Ulm GmbH an der Flughafenanbindung von Stuttgart 21.",
+  "tl10.y":"April 2026 – Heute","tl10.h":"Master am KIT","tl10.p":"Masterstudium Wirtschaftsingenieurwesen (Industrial Engineering and Management) am Karlsruher Institut für Technologie.",
+
+  "edu.eyebrow":"Ausbildung","edu.h2":"Ein interdisziplinäres Fundament.",
+  "edu1.meta":"April 2026 – Heute","edu1.h":"M.Sc. Wirtschaftsingenieurwesen (Industrial Engineering and Management)","edu1.inst":"Karlsruher Institut für Technologie (KIT)",
+  "edu1.p":"Das Programm vertieft sein Wissen in Ingenieurwesen, Management, Ökonomie, Technologie und Innovation — und unterstützt sein Ziel, an der Schnittstelle von technischen Systemen, Unternehmensstrategie, Infrastruktur und digitaler Transformation zu arbeiten.",
+  "edu2.h":"B.Sc. Immobilientechnik und Immobilienwirtschaft","edu2.inst":"Universität Stuttgart",
+  "edu2.p":"Ein Studiengang, der Bauingenieurwesen, Betriebswirtschaft, Immobilienökonomie, Projektentwicklung, Asset Management und Projektplanung verbindet — ein breites interdisziplinäres Fundament für Immobilien, Bau, Infrastruktur und Managementprozesse.",
+  "edu3.h":"Betriebswirtschaftslehre","edu3.inst":"Hochschule für Technik Stuttgart",
+  "edu3.p":"Ein frühes akademisches Fundament in Ökonomie, Unternehmensstrukturen und Management vor dem Wechsel in den Ingenieur- und Immobilienbereich.",
+  "edu4.meta":"Abschluss 2020","edu4.inst":"Gymnasium Unterrieden, Sindelfingen","edu4.p":"Allgemeine Hochschulreife, abgeschlossen 2020.",
+
+  "exp.eyebrow":"Berufserfahrung","exp.h2":"Mitten in einem der größten Infrastrukturprogramme Deutschlands.",
+  "exp1.meta":"02/2024 – Heute · Stuttgart","exp1.h":"Projektsteuerung & Technisches Projektmanagement",
+  "exp1.inst":"Projekt Stuttgart-Ulm GmbH — Flughafenanbindung Stuttgart 21",
+  "exp1.p":"Praktische Erfahrung in der Entwicklung von Großinfrastruktur und der technischen Projektkoordination — in einem Umfeld mit hoher technischer und organisatorischer Komplexität. Diese Tätigkeit stärkte Danis Verständnis dafür, wie große Infrastrukturprojekte koordiniert, dokumentiert, überwacht und optimiert werden, und entwickelte seine Fähigkeiten in Präzision, Kommunikation, Prozessverbesserung und strukturierter Projektarbeit.",
+  "exp1.list":"<li>Unterstützung bei der Inbetriebnahme verschiedener Bauwerke</li><li>Organisation und Pflege technischer Dokumentation</li><li>Verbesserung von Dokumentenmanagement- und Kontroll-Workflows</li><li>Soll-Ist-Vergleiche zur Bewertung der Projekteffizienz</li><li>Kommunikation mit unterschiedlichen Projektbeteiligten</li><li>Unterstützung einer strukturierten und effizienten Projektabwicklung</li>",
+
+  "prj.eyebrow":"Projekte & Technische Interessen","prj.h2":"Wo Bauen auf Intelligenz trifft.",
+  "prj.lede":"Die digitale Transformation des Bauens — durch künstliche Intelligenz, Automatisierung und datengetriebenes Engineering.",
+  "prj1.h":"KI, Drohneninspektion & Digitales Bauen",
+  "prj1.p1":"Danis zentraler akademischer Fokus ist der Einsatz künstlicher Intelligenz für drohnenbasierte Inspektionen und automatisierte Bildanalyse. Er untersuchte, wie Computer Vision und Deep Learning Risse in Betonstrukturen erkennen können — unter anderem mit etablierten Betonriss-Bilddatensätzen wie SDNET2018 und dem Özgenel-Datensatz.",
+  "prj1.p2":"Das Ziel: Bau- und Infrastrukturmonitoring durch KI-gestützte Inspektionsmethoden effizienter, skalierbarer und datengetriebener machen.",
+  "prj1.tags":'<span class="tag">Künstliche Intelligenz im Bauwesen</span><span class="tag">Drohnenbasierte Inspektion</span><span class="tag">Betonrisserkennung</span><span class="tag">Computer Vision</span><span class="tag">Deep Learning</span><span class="tag">Digitale Bau-Workflows</span><span class="tag">Automatisierung & Robotik</span><span class="tag">Infrastrukturmonitoring</span><span class="tag">Datengetriebenes Engineering</span>',
+  "prj2.h":"Programmierung & Software",
+  "prj2.p1":"Dani nutzt Technologie, um Routinearbeit zu automatisieren, Informationen zu strukturieren und nützliche Anwendungen zu bauen. Zu seinen technischen Interessen gehören Python, C++, JavaScript, PowerShell, Automatisierungs-Workflows, Datenverarbeitung und digitale Tools.",
+  "prj2.p2":"Er hat an kreativen Programmierideen gearbeitet — interaktive C++-Spielkonzepte, Story-basierte Spiele, Simulationsprojekte und technische Lerntools — und verbindet dabei Logik, Kreativität, Storytelling und Softwareentwicklung.",
+  "prj2.tags":'<span class="tag">Python</span><span class="tag">C++</span><span class="tag">JavaScript</span><span class="tag">PowerShell</span><span class="tag">Automatisierungs-Workflows</span><span class="tag">Datenverarbeitung</span><span class="tag">Spielkonzepte & Simulationen</span>',
+
+  "ent.eyebrow":"Unternehmertum","ent.h2":"Praktische Probleme. Skalierbare Lösungen.",
+  "ent.text":"<p>Dani entwickelte früh ein unternehmerisches Mindset. Mit 16 lehrte ihn sein erstes kleines Resale-Projekt wichtige Lektionen über Eigeninitiative, Nachfrage, Preisgestaltung, Kommunikation, Kundenverhalten und Verantwortung — Lektionen, die sein Denken bis heute prägen.</p><p>Sein Interesse gilt dem Aufbau skalierbarer, praktischer und technologiegetriebener Geschäftsmodelle: digitale Plattformen, Systeme für Zeitarbeit, immobilien- und infrastrukturnahe Dienstleistungen, KI-gestützte Bau-Tools sowie internationale Geschäfte zwischen Deutschland und der MENA-Region.</p>",
+  "v1":"<strong>Digitale Zeitarbeitsplattform</strong>Eine provisionsbasierte Job-Matching-Plattform für Arbeitgeber und Zeitarbeitskräfte — mit Sofortauszahlungsmodellen und Bewertungssystemen zur Qualitätssicherung.",
+  "v2":"<strong>KI-gestützte Bau-Tools</strong>Intelligente Werkzeuge für Bau, Inspektion und Projektdokumentation — KI im technischen Projektalltag.",
+  "v3":"<strong>Digitale Workflow-Optimierung</strong>Dokumentenmanagement und technische Workflows für komplexe Projektumgebungen verschlanken.",
+  "v4":"<strong>Premium-Valet-Parking</strong>Hochwertige Valet-Parking-Konzepte für Premium-Restaurants und Clubs.",
+  "v5":"<strong>Handel Deutschland–MENA</strong>Lieferung von Medikamenten und Hygieneprodukten aus Deutschland in die MENA-Region — Märkte, Sprachen und Kulturen verbinden.",
+  "v6":"<strong>Immobilien- & Infrastruktur-Services</strong>Servicemodelle auf Basis von Ingenieurwissen, Projektmanagement-Erfahrung und Marktverständnis.",
+
+  "sk.eyebrow":"Kompetenzen","sk.h2":"Präzision über Disziplinen hinweg.",
+  "sk1.h":"Ingenieurwesen & Projekt",
+  "sk1.b":'<span class="badge">Technisches Projektmanagement</span><span class="badge">Projektsteuerung</span><span class="badge">Koordination von Infrastrukturprojekten</span><span class="badge">Inbetriebnahme-Unterstützung</span><span class="badge">Technische Dokumentation</span><span class="badge">Dokumentenkontrolle</span><span class="badge">Workflow-Optimierung</span><span class="badge">Soll-Ist-Analysen</span><span class="badge">Stakeholder-Kommunikation</span><span class="badge">Immobilientechnik</span><span class="badge">Grundlagen Projektentwicklung</span><span class="badge">Projektplanung</span>',
+  "sk2.h":"Technologie & IT",
+  "sk2.b":'<span class="badge">Python</span><span class="badge">PowerShell</span><span class="badge">JavaScript</span><span class="badge">MS Office</span><span class="badge">macOS & Windows</span><span class="badge">Dokumenten-Workflow-Systeme</span><span class="badge">Datenorganisation</span><span class="badge">Grundlegende Automatisierung</span><span class="badge">Social Media</span><span class="badge">KI & Machine Learning</span><span class="badge">Deep Learning & Computer Vision</span>',
+  "sk3.h":"Akademische & Technische Interessen",
+  "sk3.b":'<span class="badge">Digitales Bauen</span><span class="badge">KI im Ingenieurwesen</span><span class="badge">Drohneninspektionen</span><span class="badge">Robotik & Automatisierung</span><span class="badge">Betonrisserkennung</span><span class="badge">VGG16 · ResNet · EfficientNet</span><span class="badge">CNNs</span><span class="badge">Immobilienökonomie</span><span class="badge">Grundlagen Bauingenieurwesen</span><span class="badge">Wirtschaftsingenieurwesen</span><span class="badge">Engineering Management</span><span class="badge">Business Development</span>',
+  "sk4.h":"Soft Skills",
+  "sk4.b":'<span class="badge">Analytisches Denken</span><span class="badge">Präzision</span><span class="badge">Organisationsstärke</span><span class="badge">Kommunikation</span><span class="badge">Verantwortung</span><span class="badge">Eigeninitiative</span><span class="badge">Unternehmerisches Denken</span><span class="badge">Problemlösung</span><span class="badge">Strukturierte Arbeitsweise</span><span class="badge">Neugier</span><span class="badge">Praktische Umsetzung</span>',
+
+  "lg.eyebrow":"Sprachen","lg.h2":"Zuhause in vier Sprachen.",
+  "lg1":"Deutsch","lg2":"Arabisch","lg3":"Englisch","lg4":"Französisch",
+  "lg.note":"Mit einem internationalen und multikulturellen Hintergrund bewegt sich Dani sicher zwischen verschiedenen Sprachen, Kulturen und Märkten — eine Grundlage für internationale Geschäfte zwischen Deutschland, Europa und der MENA-Region.",
+
+  "ct.eyebrow":"Kontakt","ct.h2":"Lass uns etwas aufbauen.",
+  "ct.lede":"Für berufliche Anfragen, Kooperationen, akademische Möglichkeiten, Geschäftsideen und Networking.",
+  "ct.email":"E-Mail","ct.loc":"Standort","ct.locv":"Sindelfingen, Deutschland","ct.handle":"Handle",
+  "ct.fname":"Ihr Name","ct.femail":"Ihre E-Mail-Adresse","ct.fmsg":"Ihre Nachricht","ct.fsend":"Nachricht senden",
+  "ct.fnote":"Ihre Nachricht öffnet sich in Ihrem E-Mail-Programm und geht direkt an Dani.",
+
+  "ft.tag":"Ingenieurwesen · Management · Digitales Bauen",
+  "ft.copy":"© 2026 Dani Omar El-Rajab · Sindelfingen, Deutschland"
+};
+
+const EN = {}, ENPH = {};
+document.querySelectorAll("[data-i18n]").forEach(el => { EN[el.dataset.i18n] = EN[el.dataset.i18n] ?? el.innerHTML; });
+document.querySelectorAll("[data-i18n-ph]").forEach(el => { ENPH[el.dataset.i18nPh] = el.placeholder; });
+
+let currentLang = "en";
+function setLang(lang){
+  currentLang = lang;
+  const dict = lang === "de" ? DE : EN;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const v = dict[el.dataset.i18n];
+    if (v !== undefined) el.innerHTML = v;
+  });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => {
+    el.placeholder = lang === "de" ? (DE[el.dataset.i18nPh] ?? el.placeholder) : (ENPH[el.dataset.i18nPh] ?? el.placeholder);
+  });
+  document.documentElement.lang = lang;
+  document.getElementById("btnEN").classList.toggle("active", lang === "en");
+  document.getElementById("btnDE").classList.toggle("active", lang === "de");
+}
+
+/* ---------- Nav scroll state ---------- */
+const nav = document.getElementById("nav");
+addEventListener("scroll", () => nav.classList.toggle("scrolled", scrollY > 8), {passive:true});
+
+/* ---------- Mobile menu ---------- */
+const burger = document.getElementById("burger"), navLinks = document.getElementById("navLinks");
+burger.addEventListener("click", () => navLinks.classList.toggle("open"));
+navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => navLinks.classList.remove("open")));
+
+/* ---------- Scroll reveal ---------- */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+}, {threshold:.12, rootMargin:"0px 0px -40px 0px"});
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+/* ---------- Contact form (mailto) ---------- */
+document.getElementById("contactForm").addEventListener("submit", e => {
+  e.preventDefault();
+  const name = document.getElementById("cfName").value.trim();
+  const mail = document.getElementById("cfEmail").value.trim();
+  const msg  = document.getElementById("cfMsg").value.trim();
+  const subject = (currentLang === "de" ? "Anfrage über die Website — " : "Website inquiry — ") + name;
+  const body = msg + "\n\n— " + name + " (" + mail + ")";
+  location.href = "mailto:daniomarrajab@icloud.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+});
+</script>
+</body>
+</html>
